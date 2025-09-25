@@ -1,6 +1,7 @@
-// 1.21	2025-08-29T22:10:27.2196905	Tags for minecraft:block mod id moremc
+// 1.21	2025-09-23T21:09:44.2106436	Tags for minecraft:block mod id moremc
 2e3afc42fc4ec75bed2770f9465d4267aba3a4c7 data/minecraft/tags/block/mineable/pickaxe.json
 2e3afc42fc4ec75bed2770f9465d4267aba3a4c7 data/minecraft/tags/block/needs_diamond_tool.json
+9b9804e43f62d4581ea8dad0b2ef0163440e6822 data/minecraft/tags/block/needs_iron_tool.json
 0e7966282e79b957944f66bbe499a6e74944b553 data/moremc/tags/block/incorrect_for_hardened_scute_tool.json
 524b0c3dba5fd2d2a5837a473792d95dad03f907 data/moremc/tags/block/incorrect_for_reinforced_scute_tool.json
 91b6c3f35ac57174658d1bb05219d872dfc6b76a data/moremc/tags/block/incorrect_for_scute_tool.json

@@ -23,6 +23,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.REINFORCED_SCUTE_INGOT_BLOCK.get());
         dropSelf(ModBlocks.HARDENED_SCUTE_BLOCK.get());
         dropSelf(ModBlocks.HARDENED_SCUTE_INGOT_BLOCK.get());
+        dropSelf(ModBlocks.PEDESTAL_BLOCK.get());
     }
 
     @Override

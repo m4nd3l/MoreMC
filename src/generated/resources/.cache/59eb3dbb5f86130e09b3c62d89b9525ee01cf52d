@@ -1,6 +1,7 @@
-// 1.21	2025-08-29T20:45:13.0419913	Loot Tables
+// 1.21	2025-09-23T21:09:44.2106436	Loot Tables
 50739167d46738f55b692004e894045f5ea393d4 data/moremc/loot_table/blocks/hardened_scute_block.json
 c66a98d85e69b6eb310a268a4266c66f43bab443 data/moremc/loot_table/blocks/hardened_scute_ingot_block.json
+34f2c970ab063b7555c1359b0ed7093c6d655a6e data/moremc/loot_table/blocks/pedestal_block.json
 85a357713e4ecedef2020c363a563e04d833a0fa data/moremc/loot_table/blocks/reinforced_scute_block.json
 4ddb6290ce5be59a18d7f8fea31004bfdf285590 data/moremc/loot_table/blocks/reinforced_scute_ingot_block.json
 b0270c27dccfdcd53383105d484403a938aeed5e data/moremc/loot_table/blocks/scute_block.json

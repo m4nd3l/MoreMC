@@ -1,6 +1,7 @@
 package com.m4nd3l.moremc;
 
 import com.m4nd3l.moremc.blocks.ModBlocks;
+import com.m4nd3l.moremc.blocks.entity.ModBlockEntities;
 import com.m4nd3l.moremc.items.ModCreativeModeTabs;
 import com.m4nd3l.moremc.items.ModItems;
 import com.mojang.logging.LogUtils;
@@ -43,6 +44,8 @@ public class MoreMC
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        ModBlockEntities.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -56,32 +59,6 @@ public class MoreMC
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(Items.TURTLE_SCUTE);
-            event.accept(ModItems.SCUTE_INGOT);
-            event.accept(ModItems.REINFORCED_SCUTE_INGOT);
-            event.accept(ModItems.HARDENED_SCUTE_INGOT);
-            event.accept(ModItems.REINFORCED_SCUTE);
-            event.accept(ModItems.HARDENED_SCUTE);
-        }
-
-        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            event.accept(ModItems.SCUTE_SWORD);
-            event.accept(ModItems.SCUTE_PICKAXE);
-            event.accept(ModItems.SCUTE_AXE);
-            event.accept(ModItems.SCUTE_SHOVEL);
-            event.accept(ModItems.SCUTE_HOE);
-        }
-
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.SCUTE_BLOCK);
-            event.accept(ModBlocks.REINFORCED_SCUTE_BLOCK);
-            event.accept(ModBlocks.HARDENED_SCUTE_BLOCK);
-
-            event.accept(ModBlocks.SCUTE_INGOT_BLOCK);
-            event.accept(ModBlocks.REINFORCED_SCUTE_INGOT_BLOCK);
-            event.accept(ModBlocks.HARDENED_SCUTE_INGOT_BLOCK);
-        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

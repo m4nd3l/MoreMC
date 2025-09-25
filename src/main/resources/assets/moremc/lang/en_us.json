@@ -13,8 +13,10 @@
   "block.moremc.scute_block": "Scute Block",
   "block.moremc.reinforced_scute_block": "Reinforced Scute Block",
   "block.moremc.hardened_scute_block": "Hardened Scute Block",
+  "block.moremc.pedestal_block": "Pedestal Block",
 
-  "creativetab.moremc.scuteitems": "MoreMC - Scute Tab",
+  "creativetab.moremc.scute_items_tab": "MoreMC - Scute Tab",
+  "creativetab.moremc.building_tab": "MoreMC - Building Tab",
 
   "item.moremc.scute_sword": "Scute Sword",
   "item.moremc.scute_pickaxe": "Scute Pickaxe",

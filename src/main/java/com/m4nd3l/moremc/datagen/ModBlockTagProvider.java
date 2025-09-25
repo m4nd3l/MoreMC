@@ -30,6 +30,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.HARDENED_SCUTE_BLOCK.get())
                 .add(ModBlocks.REINFORCED_SCUTE_INGOT_BLOCK.get());
 
+        tag(BlockTags.NEEDS_IRON_TOOL)
+                .add(ModBlocks.PEDESTAL_BLOCK.get());
 
         tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.SCUTE_BLOCK.get())

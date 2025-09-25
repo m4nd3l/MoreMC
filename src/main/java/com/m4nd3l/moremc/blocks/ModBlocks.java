@@ -1,6 +1,7 @@
 package com.m4nd3l.moremc.blocks;
 
 import com.m4nd3l.moremc.MoreMC;
+import com.m4nd3l.moremc.blocks.custom.PedestalBlock;
 import com.m4nd3l.moremc.items.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -47,6 +48,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> HARDENED_SCUTE_INGOT_BLOCK = registerBlock("hardened_scute_ingot_block",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(8f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
+    //PEDESTAL BLOCK
+    public static final RegistryObject<Block> PEDESTAL_BLOCK = registerBlock("pedestal_block",
+            () -> new PedestalBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion().strength(2f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

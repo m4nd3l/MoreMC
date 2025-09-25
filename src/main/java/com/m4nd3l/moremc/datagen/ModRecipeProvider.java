@@ -512,6 +512,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('#', ModItems.HARDENED_SCUTE_INGOT.get())
                 .unlockedBy("got_scute", has(ModItems.HARDENED_SCUTE_INGOT.get()))
                 .save(pRecipeOutput, MoreMC.MOD_ID + ":hardened_scute_boots_from_crafting_down");
+        //
+        //
+        //
+        //
+        // BUILDING BLOCKS
 
+        //PEDESTAL BLOCK -> 5 HARDENED SCUTE INGOT (DOWN)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.PEDESTAL_BLOCK.get())
+                .pattern(" - ")
+                .pattern(" # ")
+                .pattern(":::")
+                .define('#', Items.STONE)
+                .define('-', Items.ITEM_FRAME)
+                .define(':', Items.SMOOTH_STONE)
+                .unlockedBy("got_stone", has(Items.STONE))
+                .save(pRecipeOutput);
     }
 }

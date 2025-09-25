@@ -1,6 +1,7 @@
-// 1.21	2025-08-30T16:14:52.6885278	Recipes
+// 1.21	2025-09-23T21:09:44.2106436	Recipes
 eb4da061cefbe2001daead5a0ff5ecc91d0e5604 data/minecraft/advancement/recipes/misc/turtle_scute.json
 62333f0ee8f8c4474ac1de2c5fbbbcd7b98afc9b data/minecraft/recipe/turtle_scute.json
+e06e737bd99b00b869ac1403116602a81bea1ac6 data/moremc/advancement/recipes/building_blocks/pedestal_block.json
 8997b1910cc3ef74feb0d6bb58d27425819f033f data/moremc/advancement/recipes/misc/hardened_scute_block.json
 3a6b6a0d8a6f3c6f3a4482eb282eb699bcd7bad9 data/moremc/advancement/recipes/misc/hardened_scute_from_block.json
 6a7b95d930e3451ba66c752ba43f6da93beed600 data/moremc/advancement/recipes/misc/hardened_scute_ingot.json
@@ -64,6 +65,7 @@ cd1128b00226006e62866db17870b5d370740b66 data/moremc/recipe/hardened_scute_leggi
 4726265e9a4507099485de96ad4733227ed748d0 data/moremc/recipe/hardened_scute_pickaxe.json
 182162fd8f77ae61f54bf6ab376c833d4bf88615 data/moremc/recipe/hardened_scute_shovel.json
 f96534aa7ab5a07ad81590e1cdfa6d2ca4b0acd7 data/moremc/recipe/hardened_scute_sword.json
+c2240ce9bc9050728d324268a6f39d7d94abf1c0 data/moremc/recipe/pedestal_block.json
 4c60f58b7e0a42b7fe0d6c15bc39c615a31b303f data/moremc/recipe/reinforced_scute_axe.json
 999604b2b05a09746f36b799ddd13f16c581ec62 data/moremc/recipe/reinforced_scute_block.json
 4eb2f398e7f5158352852a58b3305e8cb4315c8c data/moremc/recipe/reinforced_scute_boots_from_crafting_down.json

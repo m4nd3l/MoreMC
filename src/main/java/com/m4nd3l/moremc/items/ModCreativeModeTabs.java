@@ -7,6 +7,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -22,7 +23,7 @@ public class ModCreativeModeTabs {
     public static final RegistryObject<CreativeModeTab> SCUTE_ITEMS_TAB = CREATIVE_MODE_TABS.register("scute_items_tab",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(Items.TURTLE_SCUTE))
-                    .title(Component.translatable("creativetab.moremc.scuteitems"))
+                    .title(Component.translatable("creativetab.moremc.scute_items_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(Items.TURTLE_SCUTE);
                         output.accept(ModBlocks.SCUTE_BLOCK.get());
@@ -74,10 +75,14 @@ public class ModCreativeModeTabs {
 
                     }).build());
 
-    // PER LE ALTRE TAB AGGIUNGI .withTabsBefore(SCUTE_ITEMS_TAB.getId())
-
-    //AL POSTO DI SCUTE_ITEMS_TAB.getId() metti la tab prima di quella in cui devi mettere .withTabsBefore(SCUTE_ITEMS_TAB.getId()) + .getId()
-
+    public static final RegistryObject<CreativeModeTab> BUILDING_TAB = CREATIVE_MODE_TABS.register("building_tab",
+            () -> CreativeModeTab.builder()
+                    .withTabsBefore(SCUTE_ITEMS_TAB.getId())
+                    .icon(() -> new ItemStack(ModBlocks.PEDESTAL_BLOCK.get()))
+                    .title(Component.translatable("creativetab.moremc.building_tab"))
+                    .displayItems((itemDisplayParameters, output) -> {
+                                output.accept(ModBlocks.PEDESTAL_BLOCK.get());
+                    }).build());
 
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TABS.register(eventBus);
