@@ -3,16 +3,17 @@
 	"id": "moremc",
 	"version": "1.0.0",
 	"name": "MoreMC",
-	"description": "MoreMC is a Minecraft mod that adds new biomes, \n End features, gear, and more, making the game richer and more exciting!",
+	"description": "MoreMC is a Minecraft mod that adds new biomes, End features, gear, and more, making the game richer and more exciting!",
 	"authors": [
 		"M4nd3l"
 	],
 	"contact": {
-      "homepage": "https://m4nd3l.netlify.app/moremc",
+      "homepage": "https://modrinth.com/project/moremc",
       "sources": "https://github.com/m4nd3l/MoreMC",
       "issues": "https://github.com/m4nd3l/MoreMC/issues",
-      "discord": "https://dsc.gg/moremc-mod",
-      "modrinth": "https://modrinth.com/project/moremc",
+      "email": "mandel123e@gmail.com",
+      "discord": "https://discord.com/invite/USbsqBGYqG",
+      "website": "https://m4nd3l.netlify.app/moremc",
       "patreon": "https://www.patreon.com/M4nd3l",
       "paypal": "https://www.paypal.com/donate/?hosted_button_id=LMSX6TAU9AQM4",
       "kofi": "https://ko-fi.com/m4nd3l"
