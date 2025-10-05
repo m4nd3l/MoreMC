@@ -1,19 +1,24 @@
-package com.m4nd3l.moremc.item;
+package com.m4nd3l.moremc.item.custom;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.Objects;
 
 public class AnvilRepairItem extends Item {
@@ -61,5 +66,18 @@ public class AnvilRepairItem extends Item {
     private void damageItem(ItemUsageContext context, World world, int amount) {
         context.getStack().damage(amount, ((ServerWorld) world), ((ServerPlayerEntity) context.getPlayer()), item ->
                 Objects.requireNonNull(context.getPlayer()).sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+
+        if(!Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.moremc.anvil_repair.shift"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.moremc.anvil_repair.tooltip"));
+            tooltip.add(Text.translatable("tooltip.moremc.anvil_repair.tooltip1"));
+        }
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

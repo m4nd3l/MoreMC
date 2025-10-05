@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "moremc:block/pedestal_block"
+    }
+  }
+}

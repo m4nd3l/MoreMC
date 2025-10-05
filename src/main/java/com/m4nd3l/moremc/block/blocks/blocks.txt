@@ -1,0 +1,5 @@
+    //PEDESTAL BLOCK
+    public static final RegistryObject<Block> PEDESTAL_BLOCK = registerBlock("pedestal_block",
+            () -> new PedestalBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion().strength(2f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
