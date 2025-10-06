@@ -1,9 +1,11 @@
 package com.m4nd3l.moremc.item;
 
 import com.m4nd3l.moremc.MoreMC;
+import com.m4nd3l.moremc.item.armor.ScuteArmor;
 import com.m4nd3l.moremc.item.items.FoodItems;
 import com.m4nd3l.moremc.item.items.MiscItems;
 import com.m4nd3l.moremc.item.items.ScuteItems;
+import com.m4nd3l.moremc.item.tools.ScuteTools;
 
 public class ModItems {
     public static void registerAllModItems() {
@@ -11,5 +13,7 @@ public class ModItems {
         ScuteItems.registerModItems();
         FoodItems.registerModItems();
         MiscItems.registerModItems();
+        ScuteTools.registerModItems();
+        ScuteArmor.registerModItems();
     }
 }

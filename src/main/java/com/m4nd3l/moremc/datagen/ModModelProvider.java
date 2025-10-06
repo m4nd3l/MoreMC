@@ -2,15 +2,18 @@ package com.m4nd3l.moremc.datagen;
 
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
+import com.m4nd3l.moremc.item.armor.ScuteArmor;
 import com.m4nd3l.moremc.item.items.FoodItems;
 import com.m4nd3l.moremc.item.items.MiscItems;
 import com.m4nd3l.moremc.item.items.ScuteItems;
+import com.m4nd3l.moremc.item.tools.ScuteTools;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.data.client.TexturedModel;
+import net.minecraft.item.ArmorItem;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -32,6 +35,10 @@ public class ModModelProvider extends FabricModelProvider {
         generateItemModelsAllScute(itemModelGenerator);
 
         generateItemModelsFood(itemModelGenerator);
+
+        generateScuteToolsModelsFood(itemModelGenerator);
+
+        generateScuteArmorModelsFood(itemModelGenerator);
 
         generateItemModelsMisc(itemModelGenerator);
     }
@@ -94,6 +101,46 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(FoodItems.RICE, Models.GENERATED);
         itemModelGenerator.register(FoodItems.BOWL_OF_RICE, Models.GENERATED);
         itemModelGenerator.register(FoodItems.COOKED_RICE, Models.GENERATED);
+    }
+
+    private void generateScuteToolsModelsFood(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(ScuteTools.SCUTE_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ScuteTools.SCUTE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ScuteTools.SCUTE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ScuteTools.SCUTE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ScuteTools.SCUTE_HOE, Models.HANDHELD);
+
+        itemModelGenerator.register(ScuteTools.REINFORCED_SCUTE_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ScuteTools.REINFORCED_SCUTE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ScuteTools.REINFORCED_SCUTE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ScuteTools.REINFORCED_SCUTE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ScuteTools.REINFORCED_SCUTE_HOE, Models.HANDHELD);
+
+        itemModelGenerator.register(ScuteTools.HARDENED_SCUTE_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ScuteTools.HARDENED_SCUTE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ScuteTools.HARDENED_SCUTE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ScuteTools.HARDENED_SCUTE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ScuteTools.HARDENED_SCUTE_HOE, Models.HANDHELD);
+    }
+
+    private void generateScuteArmorModelsFood(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.SCUTE_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.SCUTE_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.SCUTE_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.SCUTE_BOOTS));
+        itemModelGenerator.register(ScuteArmor.SCUTE_HORSE_ARMOR, Models.GENERATED);
+
+        itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.REINFORCED_SCUTE_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.REINFORCED_SCUTE_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.REINFORCED_SCUTE_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.REINFORCED_SCUTE_BOOTS));
+        itemModelGenerator.register(ScuteArmor.REINFORCED_SCUTE_HORSE_ARMOR, Models.GENERATED);
+
+        itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.HARDENED_SCUTE_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.HARDENED_SCUTE_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.HARDENED_SCUTE_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.HARDENED_SCUTE_BOOTS));
+        itemModelGenerator.register(ScuteArmor.HARDENED_SCUTE_HORSE_ARMOR, Models.GENERATED);
     }
 
     private void generateItemModelsMisc(ItemModelGenerator itemModelGenerator) {

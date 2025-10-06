@@ -3,9 +3,12 @@ package com.m4nd3l.moremc.datagen;
 import com.m4nd3l.moremc.MoreMC;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
+import com.m4nd3l.moremc.item.armor.ScuteArmor;
 import com.m4nd3l.moremc.item.items.FoodItems;
 import com.m4nd3l.moremc.item.items.MiscItems;
 import com.m4nd3l.moremc.item.items.ScuteItems;
+import com.m4nd3l.moremc.item.tools.ScuteTools;
+
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Block;
@@ -16,7 +19,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SmokingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -54,6 +56,15 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         //Scute Ingot, Scute Ingot Block
         compactingRecipe(recipeExporter, RecipeCategory.MISC, ScuteItems.SCUTE_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ScuteBlocks.SCUTE_INGOT_BLOCK);
+
+        //Tools
+        offerBaseToolsRecipe(recipeExporter, ScuteTools.SCUTE_SWORD, ScuteTools.SCUTE_PICKAXE,
+                ScuteTools.SCUTE_AXE, ScuteTools.SCUTE_SHOVEL, ScuteTools.SCUTE_HOE, ScuteItems.SCUTE_INGOT,
+                Items.STICK, "scute");
+
+        //Armor
+        offerBaseArmorRecipe(recipeExporter, ScuteArmor.SCUTE_HELMET, ScuteArmor.SCUTE_CHESTPLATE,
+                ScuteArmor.SCUTE_LEGGINGS, ScuteArmor.SCUTE_BOOTS, ScuteItems.SCUTE_INGOT, "scute");
     }
 
     /**GENERATE REINFORCED SCUTE RECIPES*/
@@ -72,6 +83,16 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         //Reinforced Scute Ingot, Reinforced Scute Ingot Block
         compactingRecipe(recipeExporter, RecipeCategory.MISC, ScuteItems.REINFORCED_SCUTE_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ScuteBlocks.REINFORCED_SCUTE_INGOT_BLOCK);
+
+        //Tools
+        offerBaseToolsRecipe(recipeExporter, ScuteTools.REINFORCED_SCUTE_SWORD, ScuteTools.REINFORCED_SCUTE_PICKAXE,
+                ScuteTools.REINFORCED_SCUTE_AXE, ScuteTools.REINFORCED_SCUTE_SHOVEL, ScuteTools.REINFORCED_SCUTE_HOE,
+                ScuteItems.REINFORCED_SCUTE_INGOT, Items.STICK, "reinforced_scute");
+
+        //Armor
+        offerBaseArmorRecipe(recipeExporter, ScuteArmor.REINFORCED_SCUTE_HELMET, ScuteArmor.REINFORCED_SCUTE_CHESTPLATE,
+                ScuteArmor.REINFORCED_SCUTE_LEGGINGS, ScuteArmor.REINFORCED_SCUTE_BOOTS,
+                ScuteItems.REINFORCED_SCUTE_INGOT, "reinforced_scute");
     }
 
     /**GENERATE HARDENED SCUTE RECIPES*/
@@ -90,6 +111,16 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         //Hardened Scute Ingot, Hardened Scute Ingot Block
         compactingRecipe(recipeExporter, RecipeCategory.MISC, ScuteItems.HARDENED_SCUTE_INGOT,
                 RecipeCategory.BUILDING_BLOCKS, ScuteBlocks.HARDENED_SCUTE_INGOT_BLOCK);
+
+        //Tools
+        offerBaseToolsRecipe(recipeExporter, ScuteTools.HARDENED_SCUTE_SWORD, ScuteTools.HARDENED_SCUTE_PICKAXE,
+                ScuteTools.HARDENED_SCUTE_AXE, ScuteTools.HARDENED_SCUTE_SHOVEL, ScuteTools.HARDENED_SCUTE_HOE,
+                ScuteItems.HARDENED_SCUTE_INGOT, Items.STICK, "hardened_scute");
+
+        //Armor
+        offerBaseArmorRecipe(recipeExporter, ScuteArmor.HARDENED_SCUTE_HELMET, ScuteArmor.HARDENED_SCUTE_CHESTPLATE,
+                ScuteArmor.HARDENED_SCUTE_LEGGINGS, ScuteArmor.HARDENED_SCUTE_BOOTS,
+                ScuteItems.HARDENED_SCUTE_INGOT, "hardened_scute");
     }
 
     /**GENERATE TREES RECIPES*/
@@ -133,7 +164,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .input('|', Items.STICK)
                 .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .offerTo(recipeExporter, MoreMC.MOD_ID + "anvil_repair");
+                .offerTo(recipeExporter, MoreMC.MOD_ID + "_anvil_repair");
     }
 
     public void offerSmoking(RecipeExporter exporter, List<ItemConvertible> inputs, RecipeCategory category,
@@ -228,6 +259,146 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter, MoreMC.MOD_ID + "_from_" + getUsableName(planks) + "_to_" + getUsableName(trapdoor));
     }
 
+    public void offerBaseToolsRecipe(RecipeExporter recipeExporter, Item sword, Item pickaxe, Item axe,
+                                     Item shovel, Item hoe, ItemConvertible material, ItemConvertible stick, String group) {
+        //Sword
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, sword.asItem())
+                .pattern("-")
+                .pattern("-")
+                .pattern("|")
+                .input('|', stick.asItem())
+                .input('-', material.asItem())
+                .group(group)
+                .criterion(hasItem(material.asItem()), conditionsFromItem(material.asItem()))
+                .criterion(hasItem(stick.asItem()), conditionsFromItem(stick.asItem()))
+                .offerTo(recipeExporter, MoreMC.MOD_ID + "_from_" + getUsableName(stick)
+                        + "_and_" + getUsableName(material) + "_to_" + getUsableName(sword));
+
+        //Pickaxe
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, pickaxe.asItem())
+                .pattern("---")
+                .pattern(" | ")
+                .pattern(" | ")
+                .input('|', stick.asItem())
+                .input('-', material.asItem())
+                .group(group)
+                .criterion(hasItem(material.asItem()), conditionsFromItem(material.asItem()))
+                .criterion(hasItem(stick.asItem()), conditionsFromItem(stick.asItem()))
+                .offerTo(recipeExporter, MoreMC.MOD_ID + "_from_" + getUsableName(stick)
+                        + "_and_" + getUsableName(material) + "_to_" + getUsableName(pickaxe));
+
+        //Axe
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, axe.asItem())
+                .pattern(" --")
+                .pattern(" |-")
+                .pattern(" | ")
+                .input('|', stick.asItem())
+                .input('-', material.asItem())
+                .group(group)
+                .criterion(hasItem(material.asItem()), conditionsFromItem(material.asItem()))
+                .criterion(hasItem(stick.asItem()), conditionsFromItem(stick.asItem()))
+                .offerTo(recipeExporter, MoreMC.MOD_ID + "_from_" + getUsableName(stick)
+                        + "_and_" + getUsableName(material) + "_to_" + getUsableName(axe));
+
+        //Axe
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, axe.asItem())
+                .pattern("-- ")
+                .pattern("-| ")
+                .pattern(" | ")
+                .input('|', stick.asItem())
+                .input('-', material.asItem())
+                .group(group)
+                .criterion(hasItem(material.asItem()), conditionsFromItem(material.asItem()))
+                .criterion(hasItem(stick.asItem()), conditionsFromItem(stick.asItem()))
+                .offerTo(recipeExporter, MoreMC.MOD_ID + "_from_" + getUsableName(stick)
+                        + "_and_" + getUsableName(material) + "_to_" + getUsableName(axe) + "_other_side");
+
+        //Shovel
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, shovel.asItem())
+                .pattern(" - ")
+                .pattern(" | ")
+                .pattern(" | ")
+                .input('|', stick.asItem())
+                .input('-', material.asItem())
+                .group(group)
+                .criterion(hasItem(material.asItem()), conditionsFromItem(material.asItem()))
+                .criterion(hasItem(stick.asItem()), conditionsFromItem(stick.asItem()))
+                .offerTo(recipeExporter, MoreMC.MOD_ID + "_from_" + getUsableName(stick)
+                        + "_and_" + getUsableName(material) + "_to_" + getUsableName(shovel));
+
+        //Hoe
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, hoe.asItem())
+                .pattern("-- ")
+                .pattern(" | ")
+                .pattern(" | ")
+                .input('|', stick.asItem())
+                .input('-', material.asItem())
+                .group(group)
+                .criterion(hasItem(material.asItem()), conditionsFromItem(material.asItem()))
+                .criterion(hasItem(stick.asItem()), conditionsFromItem(stick.asItem()))
+                .offerTo(recipeExporter, MoreMC.MOD_ID + "_from_" + getUsableName(stick)
+                        + "_and_" + getUsableName(material) + "_to_" + getUsableName(hoe));
+
+        //Hoe
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, hoe.asItem())
+                .pattern(" --")
+                .pattern(" | ")
+                .pattern(" | ")
+                .input('|', stick.asItem())
+                .input('-', material.asItem())
+                .group(group)
+                .criterion(hasItem(material.asItem()), conditionsFromItem(material.asItem()))
+                .criterion(hasItem(stick.asItem()), conditionsFromItem(stick.asItem()))
+                .offerTo(recipeExporter, MoreMC.MOD_ID + "_from_" + getUsableName(stick)
+                        + "_and_" + getUsableName(material) + "_to_" + getUsableName(hoe) + "_other_side");
+
+    }
+
+    public void offerBaseArmorRecipe(RecipeExporter recipeExporter, Item helmet, Item chestplate, Item leggings,
+                                     Item boots, ItemConvertible material, String group) {
+        //Helmet
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, helmet.asItem())
+                .pattern("---")
+                .pattern("- -")
+                .input('-', material.asItem())
+                .group(group)
+                .criterion(hasItem(material.asItem()), conditionsFromItem(material.asItem()))
+                .offerTo(recipeExporter, MoreMC.MOD_ID + "_from_" + getUsableName(material)
+                        + "_to_" + getUsableName(helmet));
+
+        //Chestplate
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, chestplate.asItem())
+                .pattern("- -")
+                .pattern("---")
+                .pattern("---")
+                .input('-', material.asItem())
+                .group(group)
+                .criterion(hasItem(material.asItem()), conditionsFromItem(material.asItem()))
+                .offerTo(recipeExporter, MoreMC.MOD_ID + "_from_" + getUsableName(material)
+                        + "_to_" + getUsableName(chestplate));
+
+        //Leggings
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, leggings.asItem())
+                .pattern("---")
+                .pattern("- -")
+                .pattern("- -")
+                .input('-', material.asItem())
+                .group(group)
+                .criterion(hasItem(material.asItem()), conditionsFromItem(material.asItem()))
+                .offerTo(recipeExporter, MoreMC.MOD_ID + "_from_" + getUsableName(material)
+                        + "_to_" + getUsableName(leggings));
+
+        //Boots
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, boots.asItem())
+                .pattern("- -")
+                .pattern("- -")
+                .input('-', material.asItem())
+                .group(group)
+                .criterion(hasItem(material.asItem()), conditionsFromItem(material.asItem()))
+                .offerTo(recipeExporter, MoreMC.MOD_ID + "_from_" + getUsableName(material)
+                        + "_to_" + getUsableName(boots));
+    }
+
     public void compactingRecipe(RecipeExporter recipeExporter, RecipeCategory itemCategory, ItemConvertible diamond,
                                  RecipeCategory blockCategory, ItemConvertible diamondBlock) {
 
@@ -248,9 +419,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     public void offerPlanksRecipeFromXWithCustomName(RecipeExporter exporter, Block from, Block planks, String group) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, planks.asItem(), 4)
                 .input(from)
-                .group("planks")
-                .criterion("has_logs", conditionsFromItem(from.asItem()))
                 .group(group)
+                .criterion("has_logs", conditionsFromItem(from.asItem()))
                 .offerTo(exporter, MoreMC.MOD_ID + "_from_" + getUsableName(from) + "_to_" + getUsableName(planks));
     }
 

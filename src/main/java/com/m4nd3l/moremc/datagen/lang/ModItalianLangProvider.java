@@ -2,9 +2,11 @@ package com.m4nd3l.moremc.datagen.lang;
 
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
+import com.m4nd3l.moremc.item.armor.ScuteArmor;
 import com.m4nd3l.moremc.item.items.FoodItems;
 import com.m4nd3l.moremc.item.items.MiscItems;
 import com.m4nd3l.moremc.item.items.ScuteItems;
+import com.m4nd3l.moremc.item.tools.ScuteTools;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.item.Items;
@@ -36,6 +38,18 @@ public class ModItalianLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(ScuteBlocks.SCUTE_BLOCK, "Blocco di scuto di tartaruga");
         translationBuilder.add(ScuteBlocks.SCUTE_INGOT_BLOCK, "Blocco di lingotto di scuto di tartaruga");
+
+        translationBuilder.add(ScuteTools.SCUTE_SWORD, "Spada di scuto di tartaruga");
+        translationBuilder.add(ScuteTools.SCUTE_PICKAXE, "Piccone di scuto di tartaruga");
+        translationBuilder.add(ScuteTools.SCUTE_AXE, "Ascia di scuto di tartaruga");
+        translationBuilder.add(ScuteTools.SCUTE_SHOVEL, "Pala di scuto di tartaruga");
+        translationBuilder.add(ScuteTools.SCUTE_HOE, "Zappa di scuto di tartaruga");
+
+        translationBuilder.add(ScuteArmor.SCUTE_HELMET, "Elmo di scuto di tartaruga");
+        translationBuilder.add(ScuteArmor.SCUTE_CHESTPLATE, "Corazza di scuto di tartaruga");
+        translationBuilder.add(ScuteArmor.SCUTE_LEGGINGS, "Gambiere di scuto di tartaruga");
+        translationBuilder.add(ScuteArmor.SCUTE_BOOTS, "Stivali di scuto di tartaruga");
+        translationBuilder.add(ScuteArmor.SCUTE_HORSE_ARMOR, "Bardatura di scuto di tartaruga");
     }
 
     public void generateReinforcedScuteTranslations(TranslationBuilder translationBuilder) {
@@ -44,6 +58,18 @@ public class ModItalianLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(ScuteBlocks.REINFORCED_SCUTE_BLOCK, "Blocco di scuto di tartaruga rinforzato");
         translationBuilder.add(ScuteBlocks.REINFORCED_SCUTE_INGOT_BLOCK, "Blocco di lingotto di scuto di tartaruga rinforzato");
+
+        translationBuilder.add(ScuteTools.REINFORCED_SCUTE_SWORD, "Spada di scuto di tartaruga rinforzato");
+        translationBuilder.add(ScuteTools.REINFORCED_SCUTE_PICKAXE, "Piccone di scuto di tartaruga rinforzato");
+        translationBuilder.add(ScuteTools.REINFORCED_SCUTE_AXE, "Ascia di scuto di tartaruga rinforzato");
+        translationBuilder.add(ScuteTools.REINFORCED_SCUTE_SHOVEL, "Pala di scuto di tartaruga rinforzato");
+        translationBuilder.add(ScuteTools.REINFORCED_SCUTE_HOE, "Zappa di scuto di tartaruga rinforzato");
+
+        translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_HELMET, "Elmo di scuto di tartaruga rinforzato");
+        translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_CHESTPLATE, "Corazza di scuto di tartaruga rinforzato");
+        translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_LEGGINGS, "Gambiere di scuto di tartaruga rinforzato");
+        translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_BOOTS, "Stivali di scuto di tartaruga rinforzato");
+        translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_HORSE_ARMOR, "Bardatura di scuto di tartaruga rinforzato");
     }
 
     public void generateHardenedScuteTranslations(TranslationBuilder translationBuilder) {
@@ -52,6 +78,18 @@ public class ModItalianLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(ScuteBlocks.HARDENED_SCUTE_BLOCK, "Blocco di scuto di Tartaruga indurito");
         translationBuilder.add(ScuteBlocks.HARDENED_SCUTE_INGOT_BLOCK, "Blocco di lingotto di scuto di tartaruga indurito");
+
+        translationBuilder.add(ScuteTools.HARDENED_SCUTE_SWORD, "Spada di scuto di tartaruga indurito");
+        translationBuilder.add(ScuteTools.HARDENED_SCUTE_PICKAXE, "Piccone di scuto di tartaruga indurito");
+        translationBuilder.add(ScuteTools.HARDENED_SCUTE_AXE, "Ascia di scuto di tartaruga indurito");
+        translationBuilder.add(ScuteTools.HARDENED_SCUTE_SHOVEL, "Pala di scuto di tartaruga indurito");
+        translationBuilder.add(ScuteTools.HARDENED_SCUTE_HOE, "Zappa di scuto di tartaruga indurito");
+
+        translationBuilder.add(ScuteArmor.HARDENED_SCUTE_HELMET, "Elmo di scuto di tartaruga indurito");
+        translationBuilder.add(ScuteArmor.HARDENED_SCUTE_CHESTPLATE, "Corazza di scuto di tartaruga indurito");
+        translationBuilder.add(ScuteArmor.HARDENED_SCUTE_LEGGINGS, "Gambiere di scuto di tartaruga indurito");
+        translationBuilder.add(ScuteArmor.HARDENED_SCUTE_BOOTS, "Stivali di scuto di tartaruga indurito");
+        translationBuilder.add(ScuteArmor.HARDENED_SCUTE_HORSE_ARMOR, "Bardatura di scuto di tartaruga indurito");
     }
 
     public void generateTreesTranslations(TranslationBuilder translationBuilder) {

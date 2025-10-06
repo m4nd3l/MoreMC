@@ -1,7 +1,6 @@
 package com.m4nd3l.moremc.block.blocks;
 
 import com.m4nd3l.moremc.MoreMC;
-import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;

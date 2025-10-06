@@ -3,9 +3,11 @@ package com.m4nd3l.moremc.item;
 import com.m4nd3l.moremc.MoreMC;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
+import com.m4nd3l.moremc.item.armor.ScuteArmor;
 import com.m4nd3l.moremc.item.items.FoodItems;
 import com.m4nd3l.moremc.item.items.MiscItems;
 import com.m4nd3l.moremc.item.items.ScuteItems;
+import com.m4nd3l.moremc.item.tools.ScuteTools;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -27,15 +29,56 @@ public class ModItemGroup {
                         entries.add(ScuteBlocks.SCUTE_BLOCK);
                         entries.add(ScuteBlocks.SCUTE_INGOT_BLOCK);
 
+                        entries.add(ScuteTools.SCUTE_SWORD);
+                        entries.add(ScuteTools.SCUTE_PICKAXE);
+                        entries.add(ScuteTools.SCUTE_AXE);
+                        entries.add(ScuteTools.SCUTE_SHOVEL);
+                        entries.add(ScuteTools.SCUTE_HOE);
+
+
                         entries.add(ScuteItems.REINFORCED_SCUTE);
                         entries.add(ScuteItems.REINFORCED_SCUTE_INGOT);
                         entries.add(ScuteBlocks.REINFORCED_SCUTE_BLOCK);
                         entries.add(ScuteBlocks.REINFORCED_SCUTE_INGOT_BLOCK);
 
+                        entries.add(ScuteTools.REINFORCED_SCUTE_SWORD);
+                        entries.add(ScuteTools.REINFORCED_SCUTE_PICKAXE);
+                        entries.add(ScuteTools.REINFORCED_SCUTE_AXE);
+                        entries.add(ScuteTools.REINFORCED_SCUTE_SHOVEL);
+                        entries.add(ScuteTools.REINFORCED_SCUTE_HOE);
+
+                        
                         entries.add(ScuteItems.HARDENED_SCUTE);
                         entries.add(ScuteItems.HARDENED_SCUTE_INGOT);
                         entries.add(ScuteBlocks.HARDENED_SCUTE_BLOCK);
                         entries.add(ScuteBlocks.HARDENED_SCUTE_INGOT_BLOCK);
+
+                        entries.add(ScuteTools.HARDENED_SCUTE_SWORD);
+                        entries.add(ScuteTools.HARDENED_SCUTE_PICKAXE);
+                        entries.add(ScuteTools.HARDENED_SCUTE_AXE);
+                        entries.add(ScuteTools.HARDENED_SCUTE_SHOVEL);
+                        entries.add(ScuteTools.HARDENED_SCUTE_HOE);
+
+                        entries.add(ScuteArmor.SCUTE_HELMET);
+                        entries.add(ScuteArmor.SCUTE_CHESTPLATE);
+                        entries.add(ScuteArmor.SCUTE_LEGGINGS);
+                        entries.add(ScuteArmor.SCUTE_BOOTS);
+
+                        entries.add(ScuteArmor.SCUTE_HORSE_ARMOR);
+
+                        entries.add(ScuteArmor.REINFORCED_SCUTE_HELMET);
+                        entries.add(ScuteArmor.REINFORCED_SCUTE_CHESTPLATE);
+                        entries.add(ScuteArmor.REINFORCED_SCUTE_LEGGINGS);
+                        entries.add(ScuteArmor.REINFORCED_SCUTE_BOOTS);
+
+                        entries.add(ScuteArmor.REINFORCED_SCUTE_BOOTS);
+
+                        entries.add(ScuteArmor.HARDENED_SCUTE_HELMET);
+                        entries.add(ScuteArmor.HARDENED_SCUTE_CHESTPLATE);
+                        entries.add(ScuteArmor.HARDENED_SCUTE_LEGGINGS);
+                        entries.add(ScuteArmor.HARDENED_SCUTE_BOOTS);
+
+                        entries.add(ScuteArmor.HARDENED_SCUTE_HORSE_ARMOR);
                     }).build());
 
     public static final ItemGroup BUILDING = Registry.register(Registries.ITEM_GROUP,

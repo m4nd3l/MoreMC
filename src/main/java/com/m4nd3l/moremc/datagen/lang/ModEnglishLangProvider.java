@@ -2,9 +2,11 @@ package com.m4nd3l.moremc.datagen.lang;
 
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
+import com.m4nd3l.moremc.item.armor.ScuteArmor;
 import com.m4nd3l.moremc.item.items.FoodItems;
 import com.m4nd3l.moremc.item.items.MiscItems;
 import com.m4nd3l.moremc.item.items.ScuteItems;
+import com.m4nd3l.moremc.item.tools.ScuteTools;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.item.Items;
@@ -36,6 +38,18 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(ScuteBlocks.SCUTE_BLOCK, "Scute block");
         translationBuilder.add(ScuteBlocks.SCUTE_INGOT_BLOCK, "Scute ingot block");
+
+        translationBuilder.add(ScuteTools.SCUTE_SWORD, "Scute sword");
+        translationBuilder.add(ScuteTools.SCUTE_PICKAXE, "Scute pickaxe");
+        translationBuilder.add(ScuteTools.SCUTE_AXE, "Scute axe");
+        translationBuilder.add(ScuteTools.SCUTE_SHOVEL, "Scute shovel");
+        translationBuilder.add(ScuteTools.SCUTE_HOE, "Scute hoe");
+
+        translationBuilder.add(ScuteArmor.SCUTE_HELMET, "Scute helmet");
+        translationBuilder.add(ScuteArmor.SCUTE_CHESTPLATE, "Scute chestplate");
+        translationBuilder.add(ScuteArmor.SCUTE_LEGGINGS, "Scute leggings");
+        translationBuilder.add(ScuteArmor.SCUTE_BOOTS, "Scute boots");
+        translationBuilder.add(ScuteArmor.SCUTE_HORSE_ARMOR, "Scute horse armor");
     }
 
     public void generateReinforcedScuteTranslations(TranslationBuilder translationBuilder) {
@@ -44,6 +58,18 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(ScuteBlocks.REINFORCED_SCUTE_BLOCK, "Reinforced scute block");
         translationBuilder.add(ScuteBlocks.REINFORCED_SCUTE_INGOT_BLOCK, "Reinforced scute ingot block");
+
+        translationBuilder.add(ScuteTools.REINFORCED_SCUTE_SWORD, "Reinforced scute sword");
+        translationBuilder.add(ScuteTools.REINFORCED_SCUTE_PICKAXE, "Reinforced scute pickaxe");
+        translationBuilder.add(ScuteTools.REINFORCED_SCUTE_AXE, "Reinforced scute axe");
+        translationBuilder.add(ScuteTools.REINFORCED_SCUTE_SHOVEL, "Reinforced scute shovel");
+        translationBuilder.add(ScuteTools.REINFORCED_SCUTE_HOE, "Reinforced scute hoe");
+
+        translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_HELMET, "Reinforced scute helmet");
+        translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_CHESTPLATE, "Reinforced scute chestplate");
+        translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_LEGGINGS, "Reinforced scute leggings");
+        translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_BOOTS, "Reinforced scute boots");
+        translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_HORSE_ARMOR, "Reinforced scute horse armor");
     }
 
     public void generateHardenedScuteTranslations(TranslationBuilder translationBuilder) {
@@ -52,6 +78,18 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
 
         translationBuilder.add(ScuteBlocks.HARDENED_SCUTE_BLOCK, "Hardened scute block");
         translationBuilder.add(ScuteBlocks.HARDENED_SCUTE_INGOT_BLOCK, "Hardened scute ingot block");
+
+        translationBuilder.add(ScuteTools.HARDENED_SCUTE_SWORD, "Hardened scute sword");
+        translationBuilder.add(ScuteTools.HARDENED_SCUTE_PICKAXE, "Hardened scute pickaxe");
+        translationBuilder.add(ScuteTools.HARDENED_SCUTE_AXE, "Hardened scute axe");
+        translationBuilder.add(ScuteTools.HARDENED_SCUTE_SHOVEL, "Hardened scute shovel");
+        translationBuilder.add(ScuteTools.HARDENED_SCUTE_HOE, "Hardened scute hoe");
+
+        translationBuilder.add(ScuteArmor.HARDENED_SCUTE_HELMET, "Hardened scute helmet");
+        translationBuilder.add(ScuteArmor.HARDENED_SCUTE_CHESTPLATE, "Hardened scute chestplate");
+        translationBuilder.add(ScuteArmor.HARDENED_SCUTE_LEGGINGS, "Hardened scute leggings");
+        translationBuilder.add(ScuteArmor.HARDENED_SCUTE_BOOTS, "Hardened scute boots");
+        translationBuilder.add(ScuteArmor.HARDENED_SCUTE_HORSE_ARMOR, "Hardened scute horse armor");
     }
 
     public void generateTreesTranslations(TranslationBuilder translationBuilder) {

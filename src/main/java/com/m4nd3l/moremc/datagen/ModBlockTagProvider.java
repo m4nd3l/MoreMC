@@ -2,7 +2,6 @@ package com.m4nd3l.moremc.datagen;
 
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
-import com.m4nd3l.moremc.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -34,10 +33,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(   ScuteBlocks.REINFORCED_SCUTE_BLOCK,
-                        ScuteBlocks.REINFORCED_SCUTE_INGOT_BLOCK    );
-
-        getOrCreateTagBuilder(ModTags.Blocks.NEEDS_SCUTE_TOOL)
-                .add(   ScuteBlocks.HARDENED_SCUTE_BLOCK,
+                        ScuteBlocks.REINFORCED_SCUTE_INGOT_BLOCK,
+                        ScuteBlocks.HARDENED_SCUTE_BLOCK,
                         ScuteBlocks.HARDENED_SCUTE_INGOT_BLOCK      );
 
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
