@@ -40,7 +40,7 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(SkyWoodBlocks.SKYWOOD_FENCE);
         addDrop(SkyWoodBlocks.SKYWOOD_FENCE_GATE);
 
-        addDrop(SkyWoodBlocks.SKYWOOD_DOOR);
+        addDrop(SkyWoodBlocks.SKYWOOD_DOOR, doorDrops(SkyWoodBlocks.SKYWOOD_DOOR));
         addDrop(SkyWoodBlocks.SKYWOOD_TRAPDOOR);
 
 
