@@ -1,6 +1,7 @@
 package com.m4nd3l.moremc.block.blocks.trees;
 
 import com.m4nd3l.moremc.MoreMC;
+import com.m4nd3l.moremc.block.blocks.custom.SkyWoodLampBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
@@ -9,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
@@ -70,8 +72,12 @@ public class SkyWoodBlocks {
     public static final Block SKYWOOD_TRAPDOOR = registerBlock("skywood_trapdoor",
             new TrapdoorBlock(BlockSetType.OAK, AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR)));
 
-    /*public static final Block SKYWOOD_WALL = registerBlock("skywood_wall",
-            new WallBlock(AbstractBlock.Settings.create().blablabla)));*/
+    public static final Block SKYWOOD_LAMP = registerBlock("skywood_lamp",
+            new SkyWoodLampBlock(AbstractBlock.Settings.create()
+                    .strength(0.6F)
+                    .burnable()
+                    .sounds(BlockSoundGroup.GLASS)
+                    .luminance(state -> state.get(SkyWoodLampBlock.CLICKED) ? 15 : 0)));
 
 
     private static void customBuildingBlocks(FabricItemGroupEntries entries) {
@@ -96,6 +102,7 @@ public class SkyWoodBlocks {
     private static void customRedstone(FabricItemGroupEntries entries) {
         entries.add(SKYWOOD_BUTTON);
         entries.add(SKYWOOD_PRESSURE_PLATE);
+        entries.add(SKYWOOD_LAMP);
     }
 
     private static void customNatural(FabricItemGroupEntries entries) {

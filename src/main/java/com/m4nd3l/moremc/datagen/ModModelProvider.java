@@ -1,19 +1,22 @@
 package com.m4nd3l.moremc.datagen;
 
+import com.m4nd3l.moremc.block.blocks.EnderiteBlocks;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
+import com.m4nd3l.moremc.block.blocks.custom.SkyWoodLampBlock;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
+import com.m4nd3l.moremc.item.armor.EnderiteArmor;
 import com.m4nd3l.moremc.item.armor.ScuteArmor;
+import com.m4nd3l.moremc.item.items.EnderiteItems;
 import com.m4nd3l.moremc.item.items.FoodItems;
 import com.m4nd3l.moremc.item.items.MiscItems;
 import com.m4nd3l.moremc.item.items.ScuteItems;
+import com.m4nd3l.moremc.item.tools.EnderiteTools;
 import com.m4nd3l.moremc.item.tools.ScuteTools;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Models;
-import net.minecraft.data.client.TexturedModel;
+import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.util.Identifier;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -27,18 +30,21 @@ public class ModModelProvider extends FabricModelProvider {
 
         generateSkyWoodModels(blockStateModelGenerator);
 
+        generateBlockStatesModelsEnderite(blockStateModelGenerator);
+
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-
         generateItemModelsAllScute(itemModelGenerator);
+        generateScuteToolsModelsFood(itemModelGenerator);
+        generateScuteArmorModelsFood(itemModelGenerator);
+
+        generateItemModelsEnderite(itemModelGenerator);
+        generateItemModelsEnderiteTools(itemModelGenerator);
+        generateItemModelsEnderiteArmor(itemModelGenerator);
 
         generateItemModelsFood(itemModelGenerator);
-
-        generateScuteToolsModelsFood(itemModelGenerator);
-
-        generateScuteArmorModelsFood(itemModelGenerator);
 
         generateItemModelsMisc(itemModelGenerator);
     }
@@ -54,6 +60,14 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ScuteBlocks.HARDENED_SCUTE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ScuteBlocks.HARDENED_SCUTE_INGOT_BLOCK);
     }
+
+    private void generateBlockStatesModelsEnderite(BlockStateModelGenerator blockStateModelGenerator) {
+        blockStateModelGenerator.registerSimpleCubeAll(EnderiteBlocks.RAW_ENDERITE_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(EnderiteBlocks.ENDERITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(EnderiteBlocks.ENDERITE_BLOCK);
+
+    }
+
 
     private void generateSkyWoodModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerLog(SkyWoodBlocks.SKYWOOD_LOG)
@@ -83,6 +97,11 @@ public class ModModelProvider extends FabricModelProvider {
 
         /*blockStateModelGenerator.registerTintableCrossBlockState(SkyWoodBlocks.SKYWOOD_SAPLING,
                 BlockStateModelGenerator.TintType.NOT_TINTED);*/
+
+        Identifier lampOffIdentifier = TexturedModel.CUBE_ALL.upload(SkyWoodBlocks.SKYWOOD_LAMP, blockStateModelGenerator.modelCollector);
+        Identifier lampOnIdentifier = blockStateModelGenerator.createSubModel(SkyWoodBlocks.SKYWOOD_LAMP, "_on", Models.CUBE_ALL, TextureMap::all);
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(SkyWoodBlocks.SKYWOOD_LAMP)
+                .coordinate(BlockStateModelGenerator.createBooleanModelMap(SkyWoodLampBlock.CLICKED, lampOnIdentifier, lampOffIdentifier)));
     }
 
 
@@ -95,6 +114,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ScuteItems.HARDENED_SCUTE, Models.GENERATED);
         itemModelGenerator.register(ScuteItems.HARDENED_SCUTE_INGOT, Models.GENERATED);
+
+        itemModelGenerator.register(ScuteItems.TURTLED_SMITHING_TEMPLATE, Models.GENERATED);
     }
 
     private void generateItemModelsFood(ItemModelGenerator itemModelGenerator) {
@@ -128,19 +149,36 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.SCUTE_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.SCUTE_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.SCUTE_BOOTS));
-        itemModelGenerator.register(ScuteArmor.SCUTE_HORSE_ARMOR, Models.GENERATED);
 
         itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.REINFORCED_SCUTE_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.REINFORCED_SCUTE_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.REINFORCED_SCUTE_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.REINFORCED_SCUTE_BOOTS));
-        itemModelGenerator.register(ScuteArmor.REINFORCED_SCUTE_HORSE_ARMOR, Models.GENERATED);
 
         itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.HARDENED_SCUTE_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.HARDENED_SCUTE_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.HARDENED_SCUTE_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem)ScuteArmor.HARDENED_SCUTE_BOOTS));
-        itemModelGenerator.register(ScuteArmor.HARDENED_SCUTE_HORSE_ARMOR, Models.GENERATED);
+    }
+
+    private void generateItemModelsEnderite(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(EnderiteItems.ENDERITE_INGOT, Models.GENERATED);
+        itemModelGenerator.register(EnderiteItems.RAW_ENDERITE, Models.GENERATED);
+    }
+
+    private void generateItemModelsEnderiteTools(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(EnderiteTools.ENDERITE_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(EnderiteTools.ENDERITE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(EnderiteTools.ENDERITE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(EnderiteTools.ENDERITE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(EnderiteTools.ENDERITE_HOE, Models.HANDHELD);
+    }
+
+    private void generateItemModelsEnderiteArmor(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.registerArmor(((ArmorItem)EnderiteArmor.ENDERITE_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem)EnderiteArmor.ENDERITE_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem)EnderiteArmor.ENDERITE_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem)EnderiteArmor.ENDERITE_BOOTS));
     }
 
     private void generateItemModelsMisc(ItemModelGenerator itemModelGenerator) {

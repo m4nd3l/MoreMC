@@ -1,11 +1,15 @@
 package com.m4nd3l.moremc.datagen.lang;
 
+import com.m4nd3l.moremc.block.blocks.EnderiteBlocks;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
+import com.m4nd3l.moremc.item.armor.EnderiteArmor;
 import com.m4nd3l.moremc.item.armor.ScuteArmor;
+import com.m4nd3l.moremc.item.items.EnderiteItems;
 import com.m4nd3l.moremc.item.items.FoodItems;
 import com.m4nd3l.moremc.item.items.MiscItems;
 import com.m4nd3l.moremc.item.items.ScuteItems;
+import com.m4nd3l.moremc.item.tools.EnderiteTools;
 import com.m4nd3l.moremc.item.tools.ScuteTools;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -30,6 +34,7 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         generateItemGroupTranslations(translationBuilder);
         generateTooltipTranslations(translationBuilder);
         generateTreesTranslations(translationBuilder);
+        generateEnderiteTranslations(translationBuilder);
     }
 
     public void generateScuteTranslations(TranslationBuilder translationBuilder) {
@@ -49,7 +54,11 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ScuteArmor.SCUTE_CHESTPLATE, "Scute chestplate");
         translationBuilder.add(ScuteArmor.SCUTE_LEGGINGS, "Scute leggings");
         translationBuilder.add(ScuteArmor.SCUTE_BOOTS, "Scute boots");
-        translationBuilder.add(ScuteArmor.SCUTE_HORSE_ARMOR, "Scute horse armor");
+
+        translationBuilder.add(ScuteItems.TURTLED_SMITHING_TEMPLATE, "Turtled Smithing Template");
+        translationBuilder.add("trim_pattern.moremc.turtled", "Turtled Armor Trim");
+
+        translationBuilder.add("trim_material.moremc.scute", "Scute Material");
     }
 
     public void generateReinforcedScuteTranslations(TranslationBuilder translationBuilder) {
@@ -69,7 +78,8 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_CHESTPLATE, "Reinforced scute chestplate");
         translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_LEGGINGS, "Reinforced scute leggings");
         translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_BOOTS, "Reinforced scute boots");
-        translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_HORSE_ARMOR, "Reinforced scute horse armor");
+
+        translationBuilder.add("trim_material.moremc.reinforced_scute", "Reinforced Scute Material");
     }
 
     public void generateHardenedScuteTranslations(TranslationBuilder translationBuilder) {
@@ -89,7 +99,29 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ScuteArmor.HARDENED_SCUTE_CHESTPLATE, "Hardened scute chestplate");
         translationBuilder.add(ScuteArmor.HARDENED_SCUTE_LEGGINGS, "Hardened scute leggings");
         translationBuilder.add(ScuteArmor.HARDENED_SCUTE_BOOTS, "Hardened scute boots");
-        translationBuilder.add(ScuteArmor.HARDENED_SCUTE_HORSE_ARMOR, "Hardened scute horse armor");
+
+        translationBuilder.add("trim_material.moremc.hardened_scute", "Hardened Scute Material");
+    }
+
+
+    public void generateEnderiteTranslations(TranslationBuilder translationBuilder) {
+        translationBuilder.add(EnderiteItems.RAW_ENDERITE, "Raw enderite");
+        translationBuilder.add(EnderiteItems.ENDERITE_INGOT, "Enderite ingot");
+
+        translationBuilder.add(EnderiteBlocks.ENDERITE_ORE, "Enderite ore");
+        translationBuilder.add(EnderiteBlocks.RAW_ENDERITE_BLOCK, "Raw enderite block");
+        translationBuilder.add(EnderiteBlocks.ENDERITE_BLOCK, "Enderite block");
+
+        translationBuilder.add(EnderiteTools.ENDERITE_SWORD, "Enderite sword");
+        translationBuilder.add(EnderiteTools.ENDERITE_PICKAXE, "Enderite pickaxe");
+        translationBuilder.add(EnderiteTools.ENDERITE_AXE, "Enderite axe");
+        translationBuilder.add(EnderiteTools.ENDERITE_SHOVEL, "Enderite shovel");
+        translationBuilder.add(EnderiteTools.ENDERITE_HOE, "Enderite hoe");
+
+        translationBuilder.add(EnderiteArmor.ENDERITE_HELMET, "Enderite helmet");
+        translationBuilder.add(EnderiteArmor.ENDERITE_CHESTPLATE, "Enderite chestplate");
+        translationBuilder.add(EnderiteArmor.ENDERITE_LEGGINGS, "Enderite leggings");
+        translationBuilder.add(EnderiteArmor.ENDERITE_BOOTS, "Enderite boots");
     }
 
     public void generateTreesTranslations(TranslationBuilder translationBuilder) {
@@ -107,6 +139,7 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SkyWoodBlocks.SKYWOOD_FENCE_GATE, "Skywood fence gate");
         translationBuilder.add(SkyWoodBlocks.SKYWOOD_TRAPDOOR, "Skywood trapdoor");
         translationBuilder.add(SkyWoodBlocks.SKYWOOD_DOOR, "Skywood door");
+        translationBuilder.add(SkyWoodBlocks.SKYWOOD_LAMP, "Skywood lamp");
     }
 
     public void generateMiscTranslations(TranslationBuilder translationBuilder) {
@@ -124,6 +157,7 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add("creativetab.moremc.scute_items_tab", "MoreMC - Scute");
         translationBuilder.add("creativetab.moremc.building_tab", "MoreMC - Building");
         translationBuilder.add("creativetab.moremc.trees", "MoreMC - Trees");
+        translationBuilder.add("creativetab.moremc.ores", "MoreMC - Ores");
         translationBuilder.add("creativetab.moremc.food", "MoreMC - Food");
         translationBuilder.add("creativetab.moremc.misc", "MoreMC - Misc");
     }

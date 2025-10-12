@@ -1,9 +1,12 @@
 package com.m4nd3l.moremc.datagen;
 
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
+import com.m4nd3l.moremc.item.armor.EnderiteArmor;
 import com.m4nd3l.moremc.item.armor.ScuteArmor;
+import com.m4nd3l.moremc.item.items.ScuteItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 
@@ -39,6 +42,19 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ScuteArmor.HARDENED_SCUTE_HELMET,
                         ScuteArmor.HARDENED_SCUTE_CHESTPLATE,
                         ScuteArmor.HARDENED_SCUTE_LEGGINGS,
-                        ScuteArmor.HARDENED_SCUTE_BOOTS                   );
+                        ScuteArmor.HARDENED_SCUTE_BOOTS,
+
+                        EnderiteArmor.ENDERITE_HELMET,
+                        EnderiteArmor.ENDERITE_CHESTPLATE,
+                        EnderiteArmor.ENDERITE_LEGGINGS,
+                        EnderiteArmor.ENDERITE_BOOTS                      );
+
+        getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
+                .add(   Items.TURTLE_SCUTE,
+                        ScuteItems.REINFORCED_SCUTE,
+                        ScuteItems.HARDENED_SCUTE                         );
+
+        getOrCreateTagBuilder(ItemTags.TRIM_TEMPLATES)
+                .add(   ScuteItems.TURTLED_SMITHING_TEMPLATE              );
     }
 }

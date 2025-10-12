@@ -1,5 +1,6 @@
 package com.m4nd3l.moremc.datagen;
 
+import com.m4nd3l.moremc.block.blocks.EnderiteBlocks;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -25,7 +26,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                         ScuteBlocks.REINFORCED_SCUTE_INGOT_BLOCK,
 
                         ScuteBlocks.HARDENED_SCUTE_BLOCK,
-                        ScuteBlocks.HARDENED_SCUTE_INGOT_BLOCK      );
+                        ScuteBlocks.HARDENED_SCUTE_INGOT_BLOCK,
+
+                        EnderiteBlocks.ENDERITE_ORE,
+                        EnderiteBlocks.ENDERITE_BLOCK,
+                        EnderiteBlocks.RAW_ENDERITE_BLOCK           );
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(   ScuteBlocks.SCUTE_BLOCK,
@@ -35,7 +40,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(   ScuteBlocks.REINFORCED_SCUTE_BLOCK,
                         ScuteBlocks.REINFORCED_SCUTE_INGOT_BLOCK,
                         ScuteBlocks.HARDENED_SCUTE_BLOCK,
-                        ScuteBlocks.HARDENED_SCUTE_INGOT_BLOCK      );
+                        ScuteBlocks.HARDENED_SCUTE_INGOT_BLOCK,
+
+                        EnderiteBlocks.ENDERITE_ORE,
+                        EnderiteBlocks.ENDERITE_BLOCK,
+                        EnderiteBlocks.RAW_ENDERITE_BLOCK           );
 
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                 .add(   SkyWoodBlocks.SKYWOOD_LOG,

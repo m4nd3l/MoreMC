@@ -1,17 +1,22 @@
 package com.m4nd3l.moremc.datagen;
 
 import com.m4nd3l.moremc.MoreMC;
+import com.m4nd3l.moremc.block.blocks.EnderiteBlocks;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
+import com.m4nd3l.moremc.item.armor.EnderiteArmor;
 import com.m4nd3l.moremc.item.armor.ScuteArmor;
+import com.m4nd3l.moremc.item.items.EnderiteItems;
 import com.m4nd3l.moremc.item.items.FoodItems;
 import com.m4nd3l.moremc.item.items.MiscItems;
 import com.m4nd3l.moremc.item.items.ScuteItems;
+import com.m4nd3l.moremc.item.tools.EnderiteTools;
 import com.m4nd3l.moremc.item.tools.ScuteTools;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
@@ -23,6 +28,7 @@ import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SmokingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.util.Identifier;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -65,6 +71,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         //Armor
         offerBaseArmorRecipe(recipeExporter, ScuteArmor.SCUTE_HELMET, ScuteArmor.SCUTE_CHESTPLATE,
                 ScuteArmor.SCUTE_LEGGINGS, ScuteArmor.SCUTE_BOOTS, ScuteItems.SCUTE_INGOT, "scute");
+
+        //Trim
+        offerTrimRecipe(recipeExporter, RecipeCategory.MISC, ScuteItems.TURTLED_SMITHING_TEMPLATE, ScuteBlocks.SCUTE_BLOCK, Items.DIAMOND);
+        offerSmithingTrimRecipe(recipeExporter, ScuteItems.TURTLED_SMITHING_TEMPLATE, Identifier.of(MoreMC.MOD_ID, "turtled"));
     }
 
     /**GENERATE REINFORCED SCUTE RECIPES*/
@@ -123,6 +133,30 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 ScuteItems.HARDENED_SCUTE_INGOT, "hardened_scute");
     }
 
+    /**GENERATE HARDENED SCUTE RECIPES*/
+    public void generateEnderiteRecipes(RecipeExporter recipeExporter) {
+        //Raw
+        compactingRecipe(recipeExporter, RecipeCategory.MISC, EnderiteItems.RAW_ENDERITE,
+                RecipeCategory.BUILDING_BLOCKS, EnderiteBlocks.RAW_ENDERITE_BLOCK);
+
+        //Ingot
+        compactingRecipe(recipeExporter, RecipeCategory.MISC, EnderiteItems.ENDERITE_INGOT,
+                RecipeCategory.BUILDING_BLOCKS, EnderiteBlocks.ENDERITE_BLOCK);
+
+        //Ingot
+        offerSmelting(recipeExporter, List.of(EnderiteItems.RAW_ENDERITE), RecipeCategory.MISC,
+                EnderiteItems.ENDERITE_INGOT, 0.3f, 200, "enderite");
+
+        //Tools
+        offerBaseToolsRecipe(recipeExporter, EnderiteTools.ENDERITE_SWORD, EnderiteTools.ENDERITE_PICKAXE,
+                EnderiteTools.ENDERITE_AXE, EnderiteTools.ENDERITE_SHOVEL, EnderiteTools.ENDERITE_HOE,
+                EnderiteItems.ENDERITE_INGOT, Items.STICK, "enderite");
+
+        //Armor
+        offerBaseArmorRecipe(recipeExporter, EnderiteArmor.ENDERITE_HELMET, EnderiteArmor.ENDERITE_CHESTPLATE,
+                EnderiteArmor.ENDERITE_LEGGINGS, EnderiteArmor.ENDERITE_BOOTS, EnderiteItems.ENDERITE_INGOT, "enderite");
+    }
+
     /**GENERATE TREES RECIPES*/
     public void generateTrees(RecipeExporter recipeExporter) {
         offerBaseTree(recipeExporter, SkyWoodBlocks.SKYWOOD_LOG, SkyWoodBlocks.SKYWOOD_WOOD,
@@ -130,6 +164,20 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 SkyWoodBlocks.SKYWOOD_STAIRS, SkyWoodBlocks.SKYWOOD_SLAB, SkyWoodBlocks.SKYWOOD_BUTTON,
                 SkyWoodBlocks.SKYWOOD_PRESSURE_PLATE, SkyWoodBlocks.SKYWOOD_FENCE, SkyWoodBlocks.SKYWOOD_FENCE_GATE,
                 SkyWoodBlocks.SKYWOOD_DOOR, SkyWoodBlocks.SKYWOOD_TRAPDOOR, "skywood");
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, SkyWoodBlocks.SKYWOOD_LAMP.asItem())
+                .pattern("#|#")
+                .pattern("#-#")
+                .pattern("#|#")
+                .input('#', SkyWoodBlocks.SKYWOOD_PLANKS.asItem())
+                .input('-', Blocks.REDSTONE_LAMP.asItem())
+                .input('|', Blocks.REDSTONE_BLOCK.asItem())
+                .criterion(hasItem(SkyWoodBlocks.SKYWOOD_PLANKS.asItem()), conditionsFromItem(SkyWoodBlocks.SKYWOOD_PLANKS.asItem()))
+                .criterion(hasItem(Blocks.REDSTONE_LAMP.asItem()), conditionsFromItem(Blocks.REDSTONE_LAMP.asItem()))
+                .criterion(hasItem(Blocks.REDSTONE_BLOCK.asItem()), conditionsFromItem(Blocks.REDSTONE_BLOCK.asItem()))
+                .offerTo(recipeExporter, MoreMC.MOD_ID + "_from_" + getUsableName(SkyWoodBlocks.SKYWOOD_PLANKS)
+                        + "_and_" + getUsableName(Blocks.REDSTONE_LAMP) + "_and_" + getUsableName(Blocks.REDSTONE_BLOCK)
+                        + "_to_" + getUsableName(SkyWoodBlocks.SKYWOOD_LAMP));
     }
 
     /**GENERATE FOOD RECIPES*/
@@ -422,6 +470,21 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .group(group)
                 .criterion("has_logs", conditionsFromItem(from.asItem()))
                 .offerTo(exporter, MoreMC.MOD_ID + "_from_" + getUsableName(from) + "_to_" + getUsableName(planks));
+    }
+
+    public void offerTrimRecipe(RecipeExporter exporter, RecipeCategory category, ItemConvertible trim, ItemConvertible material, ItemConvertible around) {
+        ShapedRecipeJsonBuilder.create(category, trim.asItem(), 2)
+                .pattern("|-|")
+                .pattern("|#|")
+                .pattern("|||")
+                .input('-', trim.asItem())
+                .input('#', material.asItem())
+                .input('|', around.asItem())
+                .criterion(hasItem(trim.asItem()), conditionsFromItem(trim.asItem()))
+                .criterion(hasItem(material.asItem()), conditionsFromItem(material.asItem()))
+                .criterion(hasItem(around.asItem()), conditionsFromItem(around.asItem()))
+                .offerTo(exporter, MoreMC.MOD_ID + "_from_" + getUsableName(trim) + "_and_" + getUsableName(material)
+                        + "_and_" + getUsableName(around) + "_to_two_" + getUsableName(trim));
     }
 
     public void offerSlabRecipeWood(RecipeExporter exporter, RecipeCategory category, ItemConvertible input, ItemConvertible output) {

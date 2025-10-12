@@ -57,18 +57,6 @@ public class ScuteBlocks {
                     .requiresTool()
                     .sounds(BlockSoundGroup.STONE)), Rarity.RARE);
 
-    /**
-     * FOR ORES:
-     * <pre>
-     * public static final Block X_ORE = registerBlock("x_ore",
-     *     new ExperienceDroppingBlock(
-     *         UniformIntProvider.create(a, b),
-     *         AbstractBlock.Settings.create()
-     *             .strength(xf)
-     *             .requiresTool()
-     *             .blablabla));</pre>
-     */
-
     private static void customBuildingBlocks(FabricItemGroupEntries entries) {
         entries.add(SCUTE_BLOCK);
         entries.add(SCUTE_INGOT_BLOCK);

@@ -1,7 +1,9 @@
 package com.m4nd3l.moremc.datagen;
 
+import com.m4nd3l.moremc.block.blocks.EnderiteBlocks;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
+import com.m4nd3l.moremc.item.items.EnderiteItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Blocks;
@@ -43,12 +45,17 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(SkyWoodBlocks.SKYWOOD_DOOR, doorDrops(SkyWoodBlocks.SKYWOOD_DOOR));
         addDrop(SkyWoodBlocks.SKYWOOD_TRAPDOOR);
 
+        addDrop(SkyWoodBlocks.SKYWOOD_LAMP);
+
 
         addDrop(SkyWoodBlocks.SKYWOOD_LEAVES, leavesDrops(SkyWoodBlocks.SKYWOOD_LEAVES,
                 /*SkyWoodBlocks.SKYWOOD_SAPLING*/Blocks.OAK_SAPLING,
                 0.0625F));
 
+        addDrop(EnderiteBlocks.ENDERITE_ORE, oreDrops(EnderiteBlocks.ENDERITE_ORE, EnderiteItems.RAW_ENDERITE));
 
-        //FOR ORES: addDrop(ModBlocks.X_ORE, oreDrops(ModBlocks.X_ORE, ModItems.RAW_X));
+        addDrop(EnderiteBlocks.ENDERITE_BLOCK);
+
+        addDrop(EnderiteBlocks.RAW_ENDERITE_BLOCK);
     }
 }

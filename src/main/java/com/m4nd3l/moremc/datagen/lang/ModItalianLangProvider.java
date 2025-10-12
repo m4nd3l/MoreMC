@@ -1,11 +1,15 @@
 package com.m4nd3l.moremc.datagen.lang;
 
+import com.m4nd3l.moremc.block.blocks.EnderiteBlocks;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
+import com.m4nd3l.moremc.item.armor.EnderiteArmor;
 import com.m4nd3l.moremc.item.armor.ScuteArmor;
+import com.m4nd3l.moremc.item.items.EnderiteItems;
 import com.m4nd3l.moremc.item.items.FoodItems;
 import com.m4nd3l.moremc.item.items.MiscItems;
 import com.m4nd3l.moremc.item.items.ScuteItems;
+import com.m4nd3l.moremc.item.tools.EnderiteTools;
 import com.m4nd3l.moremc.item.tools.ScuteTools;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -30,6 +34,7 @@ public class ModItalianLangProvider extends FabricLanguageProvider {
         generateFoodTranslations(translationBuilder);
         generateItemGroupTranslations(translationBuilder);
         generateTooltipTranslations(translationBuilder);
+        generateEnderiteTranslations(translationBuilder);
     }
 
     public void generateScuteTranslations(TranslationBuilder translationBuilder) {
@@ -49,7 +54,6 @@ public class ModItalianLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ScuteArmor.SCUTE_CHESTPLATE, "Corazza di scuto di tartaruga");
         translationBuilder.add(ScuteArmor.SCUTE_LEGGINGS, "Gambiere di scuto di tartaruga");
         translationBuilder.add(ScuteArmor.SCUTE_BOOTS, "Stivali di scuto di tartaruga");
-        translationBuilder.add(ScuteArmor.SCUTE_HORSE_ARMOR, "Bardatura di scuto di tartaruga");
     }
 
     public void generateReinforcedScuteTranslations(TranslationBuilder translationBuilder) {
@@ -69,7 +73,6 @@ public class ModItalianLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_CHESTPLATE, "Corazza di scuto di tartaruga rinforzato");
         translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_LEGGINGS, "Gambiere di scuto di tartaruga rinforzato");
         translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_BOOTS, "Stivali di scuto di tartaruga rinforzato");
-        translationBuilder.add(ScuteArmor.REINFORCED_SCUTE_HORSE_ARMOR, "Bardatura di scuto di tartaruga rinforzato");
     }
 
     public void generateHardenedScuteTranslations(TranslationBuilder translationBuilder) {
@@ -89,7 +92,26 @@ public class ModItalianLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ScuteArmor.HARDENED_SCUTE_CHESTPLATE, "Corazza di scuto di tartaruga indurito");
         translationBuilder.add(ScuteArmor.HARDENED_SCUTE_LEGGINGS, "Gambiere di scuto di tartaruga indurito");
         translationBuilder.add(ScuteArmor.HARDENED_SCUTE_BOOTS, "Stivali di scuto di tartaruga indurito");
-        translationBuilder.add(ScuteArmor.HARDENED_SCUTE_HORSE_ARMOR, "Bardatura di scuto di tartaruga indurito");
+    }
+
+    public void generateEnderiteTranslations(TranslationBuilder translationBuilder) {
+        translationBuilder.add(EnderiteItems.RAW_ENDERITE, "Enderite");
+        translationBuilder.add(EnderiteItems.ENDERITE_INGOT, "Lingotto di enderite");
+
+        translationBuilder.add(EnderiteBlocks.ENDERITE_ORE, "Enderite grezza");
+        translationBuilder.add(EnderiteBlocks.RAW_ENDERITE_BLOCK, "Blocco di enderite grezza");
+        translationBuilder.add(EnderiteBlocks.ENDERITE_BLOCK, "Blocco di enderite");
+
+        translationBuilder.add(EnderiteTools.ENDERITE_SWORD, "Spada di enderite");
+        translationBuilder.add(EnderiteTools.ENDERITE_PICKAXE, "Piccone di enderite");
+        translationBuilder.add(EnderiteTools.ENDERITE_AXE, "Ascia di enderite");
+        translationBuilder.add(EnderiteTools.ENDERITE_SHOVEL, "Pala di enderite");
+        translationBuilder.add(EnderiteTools.ENDERITE_HOE, "Zappa di enderite");
+
+        translationBuilder.add(EnderiteArmor.ENDERITE_HELMET, "Elmo di enderite");
+        translationBuilder.add(EnderiteArmor.ENDERITE_CHESTPLATE, "Corazza di enderite");
+        translationBuilder.add(EnderiteArmor.ENDERITE_LEGGINGS, "Gambiere di enderite");
+        translationBuilder.add(EnderiteArmor.ENDERITE_BOOTS, "Stivali di enderite");
     }
 
     public void generateTreesTranslations(TranslationBuilder translationBuilder) {
@@ -107,6 +129,7 @@ public class ModItalianLangProvider extends FabricLanguageProvider {
         translationBuilder.add(SkyWoodBlocks.SKYWOOD_FENCE_GATE, "Cancelletto di legno del cielo");
         translationBuilder.add(SkyWoodBlocks.SKYWOOD_TRAPDOOR, "Botola di legno del cielo");
         translationBuilder.add(SkyWoodBlocks.SKYWOOD_DOOR, "Porta di legno del cielo");
+        translationBuilder.add(SkyWoodBlocks.SKYWOOD_LAMP, "Lampada di legno del cielo");
     }
 
     public void generateMiscTranslations(TranslationBuilder translationBuilder) {
@@ -124,6 +147,7 @@ public class ModItalianLangProvider extends FabricLanguageProvider {
         translationBuilder.add("creativetab.moremc.scute_items_tab", "MoreMC - Scuto");
         translationBuilder.add("creativetab.moremc.building_tab", "MoreMC - Costruzione");
         translationBuilder.add("creativetab.moremc.trees", "MoreMC - Alberi");
+        translationBuilder.add("creativetab.moremc.ores", "MoreMC - Ores");
         translationBuilder.add("creativetab.moremc.food", "MoreMC - Cibo");
         translationBuilder.add("creativetab.moremc.misc", "MoreMC - Varie");
     }

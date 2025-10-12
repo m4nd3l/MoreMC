@@ -1,6 +1,7 @@
 package com.m4nd3l.moremc.item.tools;
 
 import com.google.common.base.Suppliers;
+import com.m4nd3l.moremc.item.items.EnderiteItems;
 import com.m4nd3l.moremc.item.items.ScuteItems;
 import com.m4nd3l.moremc.util.ModTags;
 import net.minecraft.block.Block;
@@ -11,12 +12,15 @@ import net.minecraft.registry.tag.TagKey;
 import java.util.function.Supplier;
 
 public enum ModToolMaterial implements ToolMaterial {
-   SCUTE(ModTags.Blocks.INCORRECT_FOR_SCUTE_TOOL, 2320,
-           9.5F, 4.2F, 17, () -> Ingredient.ofItems(ScuteItems.SCUTE_INGOT)),
-   REINFORCED_SCUTE(ModTags.Blocks.INCORRECT_FOR_REINFORCED_SCUTE_TOOL, 2749,
-           10F, 4.5F, 19, () -> Ingredient.ofItems(ScuteItems.REINFORCED_SCUTE_INGOT)),
-   HARDENED_SCUTE(ModTags.Blocks.INCORRECT_FOR_HARDENED_SCUTE_TOOL, 3215,
-           12F, 5F, 22, () -> Ingredient.ofItems(ScuteItems.HARDENED_SCUTE_INGOT));
+   SCUTE(ModTags.Blocks.INCORRECT_FOR_SCUTE_TOOL, 1561,
+           8.0F, 3.0F, 10, () -> Ingredient.ofItems(ScuteItems.SCUTE_INGOT)),
+   REINFORCED_SCUTE(ModTags.Blocks.INCORRECT_FOR_REINFORCED_SCUTE_TOOL,    2031,
+           9.0F, 4.0F, 15, () -> Ingredient.ofItems(ScuteItems.REINFORCED_SCUTE_INGOT)),
+   HARDENED_SCUTE(ModTags.Blocks.INCORRECT_FOR_HARDENED_SCUTE_TOOL, 2749,
+           10F, 4.5F, 19, () -> Ingredient.ofItems(ScuteItems.HARDENED_SCUTE_INGOT)),
+   ENDERITE(ModTags.Blocks.INCORRECT_FOR_ENDERITE_TOOL, 2031,
+           9.0F, 4.0F, 15, () -> Ingredient.ofItems(EnderiteItems.ENDERITE_INGOT));
+
 
     private final TagKey<Block> inverseTag;
     private final int itemDurability;

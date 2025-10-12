@@ -1,12 +1,16 @@
 package com.m4nd3l.moremc.item;
 
 import com.m4nd3l.moremc.MoreMC;
+import com.m4nd3l.moremc.block.blocks.EnderiteBlocks;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
+import com.m4nd3l.moremc.item.armor.EnderiteArmor;
 import com.m4nd3l.moremc.item.armor.ScuteArmor;
+import com.m4nd3l.moremc.item.items.EnderiteItems;
 import com.m4nd3l.moremc.item.items.FoodItems;
 import com.m4nd3l.moremc.item.items.MiscItems;
 import com.m4nd3l.moremc.item.items.ScuteItems;
+import com.m4nd3l.moremc.item.tools.EnderiteTools;
 import com.m4nd3l.moremc.item.tools.ScuteTools;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
@@ -64,21 +68,20 @@ public class ModItemGroup {
                         entries.add(ScuteArmor.SCUTE_LEGGINGS);
                         entries.add(ScuteArmor.SCUTE_BOOTS);
 
-                        entries.add(ScuteArmor.SCUTE_HORSE_ARMOR);
 
                         entries.add(ScuteArmor.REINFORCED_SCUTE_HELMET);
                         entries.add(ScuteArmor.REINFORCED_SCUTE_CHESTPLATE);
                         entries.add(ScuteArmor.REINFORCED_SCUTE_LEGGINGS);
                         entries.add(ScuteArmor.REINFORCED_SCUTE_BOOTS);
 
-                        entries.add(ScuteArmor.REINFORCED_SCUTE_BOOTS);
 
                         entries.add(ScuteArmor.HARDENED_SCUTE_HELMET);
                         entries.add(ScuteArmor.HARDENED_SCUTE_CHESTPLATE);
                         entries.add(ScuteArmor.HARDENED_SCUTE_LEGGINGS);
                         entries.add(ScuteArmor.HARDENED_SCUTE_BOOTS);
 
-                        entries.add(ScuteArmor.HARDENED_SCUTE_HORSE_ARMOR);
+
+                        entries.add(ScuteItems.TURTLED_SMITHING_TEMPLATE);
                     }).build());
 
     public static final ItemGroup BUILDING = Registry.register(Registries.ITEM_GROUP,
@@ -103,6 +106,8 @@ public class ModItemGroup {
                         entries.add(SkyWoodBlocks.SKYWOOD_PLANKS);
                         entries.add(SkyWoodBlocks.SKYWOOD_STAIRS);
                         entries.add(SkyWoodBlocks.SKYWOOD_SLAB);
+
+                        entries.add(SkyWoodBlocks.SKYWOOD_LAMP);
                     }).build());
 
     public static final ItemGroup TREES = Registry.register(Registries.ITEM_GROUP,
@@ -131,12 +136,38 @@ public class ModItemGroup {
 
                         entries.add(SkyWoodBlocks.SKYWOOD_BUTTON);
                         entries.add(SkyWoodBlocks.SKYWOOD_PRESSURE_PLATE);
+
+                        entries.add(SkyWoodBlocks.SKYWOOD_LAMP);
+                    }).build());
+
+    public static final ItemGroup ORES = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(MoreMC.MOD_ID, "d_ores"), FabricItemGroup.builder()
+                    .displayName(Text.translatable("creativetab.moremc.ores"))
+                    .icon(() -> new ItemStack(EnderiteBlocks.ENDERITE_ORE))
+                    .entries((displayContext, entries) -> {
+                        entries.add(EnderiteBlocks.ENDERITE_ORE);
+                        entries.add(EnderiteItems.RAW_ENDERITE);
+
+                        entries.add(EnderiteBlocks.ENDERITE_BLOCK);
+                        entries.add(EnderiteItems.ENDERITE_INGOT);
+
+                        entries.add(EnderiteBlocks.RAW_ENDERITE_BLOCK);
+
+                        entries.add(EnderiteTools.ENDERITE_SWORD);
+                        entries.add(EnderiteTools.ENDERITE_PICKAXE);
+                        entries.add(EnderiteTools.ENDERITE_AXE);
+                        entries.add(EnderiteTools.ENDERITE_SHOVEL);
+                        entries.add(EnderiteTools.ENDERITE_HOE);
+
+                        entries.add(EnderiteArmor.ENDERITE_HELMET);
+                        entries.add(EnderiteArmor.ENDERITE_CHESTPLATE);
+                        entries.add(EnderiteArmor.ENDERITE_LEGGINGS);
+                        entries.add(EnderiteArmor.ENDERITE_BOOTS);
                     }).build());
 
 
-
     public static final ItemGroup FOOD = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(MoreMC.MOD_ID, "d_food"), FabricItemGroup.builder()
+            Identifier.of(MoreMC.MOD_ID, "e_food"), FabricItemGroup.builder()
                     .displayName(Text.translatable("creativetab.moremc.food"))
                     .icon(() -> new ItemStack(FoodItems.RICE))
                     .entries((displayContext, entries) -> {
