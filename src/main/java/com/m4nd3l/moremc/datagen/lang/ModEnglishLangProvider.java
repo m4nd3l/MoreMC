@@ -1,6 +1,9 @@
 package com.m4nd3l.moremc.datagen.lang;
 
+import com.m4nd3l.moremc.block.ModBlocks;
+import com.m4nd3l.moremc.block.blocks.CropBlocks;
 import com.m4nd3l.moremc.block.blocks.EnderiteBlocks;
+import com.m4nd3l.moremc.block.blocks.MiscBlocks;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
 import com.m4nd3l.moremc.item.armor.EnderiteArmor;
@@ -11,6 +14,7 @@ import com.m4nd3l.moremc.item.items.MiscItems;
 import com.m4nd3l.moremc.item.items.ScuteItems;
 import com.m4nd3l.moremc.item.tools.EnderiteTools;
 import com.m4nd3l.moremc.item.tools.ScuteTools;
+import com.m4nd3l.moremc.villager.ModVillagers;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.item.Items;
@@ -35,6 +39,22 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         generateTooltipTranslations(translationBuilder);
         generateTreesTranslations(translationBuilder);
         generateEnderiteTranslations(translationBuilder);
+        generateAdvancementsTranslations(translationBuilder);
+        generateCropTranslations(translationBuilder);
+        generateEntityTranslations(translationBuilder);
+    }
+
+    private void generateCropTranslations(TranslationBuilder translationBuilder) {
+        translationBuilder.add(MiscItems.RICE_SEEDS, "Rice seeds");
+        translationBuilder.add(CropBlocks.RICE_CROP, "Rice crop");
+    }
+
+    private void generateAdvancementsTranslations(TranslationBuilder translationBuilder) {
+        translationBuilder.add("advancements.moremc.got_scute", "Thank you little turtle!");
+        translationBuilder.add("advancements.moremc.got_scute.description", "Get a turtle scute from a turtle");
+
+        translationBuilder.add("advancements.moremc.got_hardened_scute", "Almost as hard as bedrock!");
+        translationBuilder.add("advancements.moremc.got_hardened_scute.description", "Craft a hardened scute using the hardener");
     }
 
     public void generateScuteTranslations(TranslationBuilder translationBuilder) {
@@ -145,6 +165,7 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
     public void generateMiscTranslations(TranslationBuilder translationBuilder) {
         translationBuilder.add(MiscItems.TORN_PAPER, "Torn paper");
         translationBuilder.add(MiscItems.ANVIL_REPAIR, "Anvil repair tool");
+        translationBuilder.add(MiscBlocks.SUSHI_GETA, "Sushi geta");
     }
 
     public void generateFoodTranslations(TranslationBuilder translationBuilder) {
@@ -160,6 +181,11 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add("creativetab.moremc.ores", "MoreMC - Ores");
         translationBuilder.add("creativetab.moremc.food", "MoreMC - Food");
         translationBuilder.add("creativetab.moremc.misc", "MoreMC - Misc");
+        translationBuilder.add("creativetab.moremc.nature", "MoreMC - Nature");
+    }
+
+    public void generateEntityTranslations(TranslationBuilder translationBuilder) {
+        translationBuilder.add("entity.minecraft.villager.asian_farmer", "Asian farmer");
     }
 
     public void generateTooltipTranslations(TranslationBuilder translationBuilder) {

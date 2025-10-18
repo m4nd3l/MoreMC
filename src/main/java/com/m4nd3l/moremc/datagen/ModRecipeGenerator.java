@@ -46,6 +46,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         generateTrees(recipeExporter);
         generateFood(recipeExporter);
         generateMisc(recipeExporter);
+        generateEnderiteRecipes(recipeExporter);
     }
 
 

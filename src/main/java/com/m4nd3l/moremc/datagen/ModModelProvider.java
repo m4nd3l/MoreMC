@@ -1,7 +1,10 @@
 package com.m4nd3l.moremc.datagen;
 
+import com.m4nd3l.moremc.block.blocks.CropBlocks;
 import com.m4nd3l.moremc.block.blocks.EnderiteBlocks;
+import com.m4nd3l.moremc.block.blocks.MiscBlocks;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
+import com.m4nd3l.moremc.block.blocks.crops.RiceCropBlock;
 import com.m4nd3l.moremc.block.blocks.custom.SkyWoodLampBlock;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
 import com.m4nd3l.moremc.item.armor.EnderiteArmor;
@@ -32,6 +35,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         generateBlockStatesModelsEnderite(blockStateModelGenerator);
 
+        generateBlockStatesModelsMisc(blockStateModelGenerator);
+
     }
 
     @Override
@@ -47,6 +52,7 @@ public class ModModelProvider extends FabricModelProvider {
         generateItemModelsFood(itemModelGenerator);
 
         generateItemModelsMisc(itemModelGenerator);
+
     }
 
 
@@ -66,6 +72,10 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(EnderiteBlocks.ENDERITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(EnderiteBlocks.ENDERITE_BLOCK);
 
+    }
+
+    private void generateBlockStatesModelsMisc(BlockStateModelGenerator blockStateModelGenerator) {
+        blockStateModelGenerator.registerCrop(CropBlocks.RICE_CROP, RiceCropBlock.AGE, 0, 1, 2, 3, 4);
     }
 
 

@@ -56,5 +56,26 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.TRIM_TEMPLATES)
                 .add(   ScuteItems.TURTLED_SMITHING_TEMPLATE              );
+
+        getOrCreateTagBuilder(ItemTags.ARMOR_ENCHANTABLE)
+                .add(   ScuteArmor.SCUTE_HELMET,
+                        ScuteArmor.SCUTE_CHESTPLATE,
+                        ScuteArmor.SCUTE_LEGGINGS,
+                        ScuteArmor.SCUTE_BOOTS,
+
+                        ScuteArmor.REINFORCED_SCUTE_HELMET,
+                        ScuteArmor.REINFORCED_SCUTE_CHESTPLATE,
+                        ScuteArmor.REINFORCED_SCUTE_LEGGINGS,
+                        ScuteArmor.REINFORCED_SCUTE_BOOTS,
+
+                        ScuteArmor.HARDENED_SCUTE_HELMET,
+                        ScuteArmor.HARDENED_SCUTE_CHESTPLATE,
+                        ScuteArmor.HARDENED_SCUTE_LEGGINGS,
+                        ScuteArmor.HARDENED_SCUTE_BOOTS,
+
+                        EnderiteArmor.ENDERITE_HELMET,
+                        EnderiteArmor.ENDERITE_CHESTPLATE,
+                        EnderiteArmor.ENDERITE_LEGGINGS,
+                        EnderiteArmor.ENDERITE_BOOTS                      );
     }
 }

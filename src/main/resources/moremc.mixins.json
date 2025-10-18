@@ -3,7 +3,8 @@
 	"package": "com.m4nd3l.moremc.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"MagmaBlockMixin",
+        "PowderSnowBlockMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

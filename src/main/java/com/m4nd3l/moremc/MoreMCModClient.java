@@ -1,5 +1,6 @@
 package com.m4nd3l.moremc;
 
+import com.m4nd3l.moremc.block.blocks.CropBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -10,5 +11,7 @@ public class MoreMCModClient implements ClientModInitializer {
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(SkyWoodBlocks.SKYWOOD_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(SkyWoodBlocks.SKYWOOD_TRAPDOOR, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(CropBlocks.RICE_CROP, RenderLayer.getCutout());
     }
 }

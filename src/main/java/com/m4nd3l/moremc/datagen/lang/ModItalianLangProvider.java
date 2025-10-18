@@ -1,6 +1,9 @@
 package com.m4nd3l.moremc.datagen.lang;
 
+import com.m4nd3l.moremc.block.ModBlocks;
+import com.m4nd3l.moremc.block.blocks.CropBlocks;
 import com.m4nd3l.moremc.block.blocks.EnderiteBlocks;
+import com.m4nd3l.moremc.block.blocks.MiscBlocks;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
 import com.m4nd3l.moremc.item.armor.EnderiteArmor;
@@ -35,6 +38,22 @@ public class ModItalianLangProvider extends FabricLanguageProvider {
         generateItemGroupTranslations(translationBuilder);
         generateTooltipTranslations(translationBuilder);
         generateEnderiteTranslations(translationBuilder);
+        generateAdvancementsTranslations(translationBuilder);
+        generateCropTranslations(translationBuilder);
+        generateEntityTranslations(translationBuilder);
+    }
+
+    private void generateCropTranslations(TranslationBuilder translationBuilder) {
+        translationBuilder.add(MiscItems.RICE_SEEDS, "Semi di riso");
+        translationBuilder.add(CropBlocks.RICE_CROP, "Risaia");
+    }
+
+    private void generateAdvancementsTranslations(TranslationBuilder translationBuilder) {
+        translationBuilder.add("advancements.moremc.got_scute", "Grazie piccola tartaruga!!");
+        translationBuilder.add("advancements.moremc.got_scute.description", "Ottieni uno scuto di tartaruga da una tartaruga");
+
+        translationBuilder.add("advancements.moremc.got_hardened_scute", "Duro quasi come la bedrock!");
+        translationBuilder.add("advancements.moremc.got_hardened_scute.description", "Crafta uno scuto di tartaruga indurito con l'induritore");
     }
 
     public void generateScuteTranslations(TranslationBuilder translationBuilder) {
@@ -135,6 +154,7 @@ public class ModItalianLangProvider extends FabricLanguageProvider {
     public void generateMiscTranslations(TranslationBuilder translationBuilder) {
         translationBuilder.add(MiscItems.TORN_PAPER, "Carta strappata");
         translationBuilder.add(MiscItems.ANVIL_REPAIR, "Riparatore di incudini");
+        translationBuilder.add(MiscBlocks.SUSHI_GETA, "Vassoio da sushi");
     }
 
     public void generateFoodTranslations(TranslationBuilder translationBuilder) {
@@ -149,7 +169,12 @@ public class ModItalianLangProvider extends FabricLanguageProvider {
         translationBuilder.add("creativetab.moremc.trees", "MoreMC - Alberi");
         translationBuilder.add("creativetab.moremc.ores", "MoreMC - Ores");
         translationBuilder.add("creativetab.moremc.food", "MoreMC - Cibo");
+        translationBuilder.add("creativetab.moremc.nature", "MoreMC - Natura");
         translationBuilder.add("creativetab.moremc.misc", "MoreMC - Varie");
+    }
+
+    public void generateEntityTranslations(TranslationBuilder translationBuilder) {
+        translationBuilder.add("entity.minecraft.villager.asian_farmer", "Contadino asiatico");
     }
 
     public void generateTooltipTranslations(TranslationBuilder translationBuilder) {

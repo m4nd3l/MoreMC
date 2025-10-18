@@ -1,15 +1,21 @@
 package com.m4nd3l.moremc;
 
 import com.m4nd3l.moremc.block.ModBlocks;
+import com.m4nd3l.moremc.block.blocks.MiscBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
+import com.m4nd3l.moremc.datagen.ModWorldGenerator;
 import com.m4nd3l.moremc.item.ModItemGroup;
 import com.m4nd3l.moremc.item.ModItems;
+import com.m4nd3l.moremc.item.items.FoodItems;
 import com.m4nd3l.moremc.item.items.MiscItems;
+import com.m4nd3l.moremc.villager.ModTrades;
+import com.m4nd3l.moremc.villager.ModVillagers;
+import com.m4nd3l.moremc.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import net.minecraft.block.ComposterBlock;
 import net.minecraft.item.Items;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,15 +30,23 @@ public class MoreMC implements ModInitializer {
 	@Override
 	public void onInitialize() {
         LOGGER.info(getThis() + ": Initializing mod...");
+
         ModItemGroup.registerItemGroups();
 
         ModItems.registerAllModItems();
 
         ModBlocks.registerAllModBlocks();
 
+        ModVillagers.registerVillagers();
+
+        ModTrades.registerCustomTrades();
+
+        ModWorldGeneration.generateModWorldGeneration();
+
         registerFuels();
         registerStrippable();
         registerFlammable();
+        registerComposter();
 	}
 
     public void registerFuels() {
@@ -62,6 +76,15 @@ public class MoreMC implements ModInitializer {
         FlammableBlockRegistry.getDefaultInstance().add(SkyWoodBlocks.SKYWOOD_PRESSURE_PLATE, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(SkyWoodBlocks.SKYWOOD_FENCE, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(SkyWoodBlocks.SKYWOOD_FENCE_GATE, 5, 20);
+
+        FlammableBlockRegistry.getDefaultInstance().add(MiscBlocks.SUSHI_GETA, 5, 20);
+    }
+
+    public void registerComposter() {
+        LOGGER.info(this.getThis() + ": Registering composter items...");
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(FoodItems.COOKED_RICE, 0.5f);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(FoodItems.RICE, 0.25f);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(MiscItems.RICE_SEEDS, 0.25f);
     }
 
     public static String getThis() {

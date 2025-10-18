@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
 	"id": "moremc",
-	"version": "1.0.0",
-	"name": "MoreMC",
+	"version": "0.1.0",
+	"name": "MoreMC - ALPHA",
 	"description": "MoreMC is a Minecraft mod that adds new biomes, End features, gear, and more, making the game richer and more exciting!",
 	"authors": [
 		"M4nd3l - Mod Creator and Tester",

@@ -1,6 +1,7 @@
 package com.m4nd3l.moremc.datagen;
 
 import com.m4nd3l.moremc.block.blocks.EnderiteBlocks;
+import com.m4nd3l.moremc.block.blocks.MiscBlocks;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -65,7 +66,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                         SkyWoodBlocks.SKYWOOD_FENCE_GATE,
 
                         SkyWoodBlocks.SKYWOOD_DOOR,
-                        SkyWoodBlocks.SKYWOOD_TRAPDOOR              );
+                        SkyWoodBlocks.SKYWOOD_TRAPDOOR,
+
+                        MiscBlocks.SUSHI_GETA                       );
 
         getOrCreateTagBuilder(BlockTags.LEAVES)
                 .add(   SkyWoodBlocks.SKYWOOD_LEAVES                );

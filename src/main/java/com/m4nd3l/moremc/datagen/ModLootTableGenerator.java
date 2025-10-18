@@ -1,12 +1,19 @@
 package com.m4nd3l.moremc.datagen;
 
+import com.m4nd3l.moremc.block.blocks.CropBlocks;
 import com.m4nd3l.moremc.block.blocks.EnderiteBlocks;
+import com.m4nd3l.moremc.block.blocks.MiscBlocks;
 import com.m4nd3l.moremc.block.blocks.ScuteBlocks;
+import com.m4nd3l.moremc.block.blocks.crops.RiceCropBlock;
 import com.m4nd3l.moremc.block.blocks.trees.SkyWoodBlocks;
 import com.m4nd3l.moremc.item.items.EnderiteItems;
+import com.m4nd3l.moremc.item.items.FoodItems;
+import com.m4nd3l.moremc.item.items.MiscItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Blocks;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -57,5 +64,12 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(EnderiteBlocks.ENDERITE_BLOCK);
 
         addDrop(EnderiteBlocks.RAW_ENDERITE_BLOCK);
+
+        addDrop(MiscBlocks.SUSHI_GETA);
+
+        BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(CropBlocks.RICE_CROP)
+                .properties(StatePredicate.Builder.create().exactMatch(RiceCropBlock.AGE, 4));
+
+        this.addDrop(CropBlocks.RICE_CROP, this.cropDrops(CropBlocks.RICE_CROP, FoodItems.RICE, MiscItems.RICE_SEEDS, builder));
     }
 }

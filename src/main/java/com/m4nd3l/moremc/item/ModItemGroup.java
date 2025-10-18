@@ -165,9 +165,19 @@ public class ModItemGroup {
                         entries.add(EnderiteArmor.ENDERITE_BOOTS);
                     }).build());
 
+    public static final ItemGroup NATURE = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(MoreMC.MOD_ID, "e_nature"), FabricItemGroup.builder()
+                    .displayName(Text.translatable("creativetab.moremc.nature"))
+                    .icon(() -> new ItemStack(MiscItems.RICE_SEEDS))
+                    .entries((displayContext, entries) -> {
+                        //sapling
+                        entries.add(MiscItems.RICE_SEEDS);
+                        entries.add(FoodItems.RICE);
+                    }).build());
+
 
     public static final ItemGroup FOOD = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(MoreMC.MOD_ID, "e_food"), FabricItemGroup.builder()
+            Identifier.of(MoreMC.MOD_ID, "f_food"), FabricItemGroup.builder()
                     .displayName(Text.translatable("creativetab.moremc.food"))
                     .icon(() -> new ItemStack(FoodItems.RICE))
                     .entries((displayContext, entries) -> {
